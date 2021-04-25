@@ -16,7 +16,6 @@
 
 import { Context } from './types';
 
-
 /** Get a key to uniquely identify a context value */
 export function createContextKey(description: string) {
   return Symbol.for(description);

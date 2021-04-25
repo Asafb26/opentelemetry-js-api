@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-import { createContextKey } from '../context/context'
-import { Context } from '../context/types'
-import { Span } from './span'
-import { SpanContext } from './span_context'
-import { NoopSpan } from './NoopSpan'
+import { createContextKey } from '../context/context';
+import { Context } from '../context/types';
+import { Span } from './span';
+import { SpanContext } from './span_context';
+import { NoopSpan } from './NoopSpan';
 
 /**
  * span key
  */
- const SPAN_KEY = createContextKey('OpenTelemetry Context Key SPAN');
+const SPAN_KEY = createContextKey('OpenTelemetry Context Key SPAN');
 
- /**
+/**
  * Shared key for indicating if instrumentation should be suppressed beyond
  * this current scope.
  */
@@ -38,7 +38,7 @@ const SUPPRESS_INSTRUMENTATION_KEY = createContextKey(
  *
  * @param context context to get span from
  */
- export function getSpan(context: Context): Span | undefined {
+export function getSpan(context: Context): Span | undefined {
   return (context.getValue(SPAN_KEY) as Span) || undefined;
 }
 
@@ -59,7 +59,7 @@ export function setSpan(context: Context, span: Span): Context {
  * @param context context to set active span on
  * @param spanContext span context to be wrapped
  */
- export function setSpanContext(
+export function setSpanContext(
   context: Context,
   spanContext: SpanContext
 ): Context {
@@ -81,7 +81,7 @@ export function getSpanContext(context: Context): SpanContext | undefined {
  *
  * @param context context to set the suppress instrumentation value on.
  */
- export function suppressInstrumentation(context: Context): Context {
+export function suppressInstrumentation(context: Context): Context {
   return context.setValue(SUPPRESS_INSTRUMENTATION_KEY, true);
 }
 

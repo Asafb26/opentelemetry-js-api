@@ -20,7 +20,7 @@ import {
   suppressInstrumentation,
   unsuppressInstrumentation,
 } from '../../src/trace/context-utils';
-import { createContextKey, ROOT_CONTEXT} from '../../src/context/context'
+import { createContextKey, ROOT_CONTEXT } from '../../src/context/context';
 
 const SUPPRESS_INSTRUMENTATION_KEY = createContextKey(
   'OpenTelemetry Context Key SUPPRESS_INSTRUMENTATION'
