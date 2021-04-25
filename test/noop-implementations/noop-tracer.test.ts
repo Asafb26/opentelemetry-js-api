@@ -21,7 +21,7 @@ import {
   SpanKind,
   TraceFlags,
   context,
-  setSpanContext,
+  trace,
 } from '../../src';
 import { NoopSpan } from '../../src/trace/NoopSpan';
 
@@ -50,7 +50,7 @@ describe('NoopTracer', () => {
     const span = tracer.startSpan(
       'test-1',
       {},
-      setSpanContext(context.active(), parent)
+      trace.setSpanContext(context.active(), parent)
     );
     assert(span.context().traceId === parent.traceId);
     assert(span.context().spanId === parent.spanId);

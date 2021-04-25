@@ -18,6 +18,7 @@ import { ProxyTracerProvider } from '../trace/ProxyTracerProvider';
 import { Tracer } from '../trace/tracer';
 import { TracerProvider } from '../trace/tracer_provider';
 import { isSpanContextValid } from '../trace/spancontext-utils';
+import { getSpan, getSpanContext, setSpan, setSpanContext } from '../trace/context-utils'
 import {
   getGlobal,
   registerGlobal,
@@ -77,4 +78,12 @@ export class TraceAPI {
   }
 
   public isSpanContextValid = isSpanContextValid;
+
+  public getSpan = getSpan;
+
+  public getSpanContext = getSpanContext;
+
+  public setSpan = setSpan;
+
+  public setSpanContext = setSpanContext;
 }
